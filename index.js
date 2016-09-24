@@ -32,7 +32,6 @@ fs.stat(info.file, (err, stats) => {
   }
   // .csv generation occurs when no arguments are provided.
   if(conf._.length == 0) {
-
     req.pipe(new csv()).pipe(fs.createWriteStream('out.csv'));
   }
   req.pipe(process.stdout);
