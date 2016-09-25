@@ -25,7 +25,11 @@ fs.stat(info.file, (err, stats) => {
   var req;
   // If the cached item has expired hit the API again and re-cache.
   if(err || new Date - stats.birthtime > conf.ttl) {
-    req = request(info.url);
+    req = request(info.url, (err) => {
+      if(err) {
+        process.exit(1);
+      }
+    });
     req.pipe(fs.createWriteStream(info.file));
   } else {
     req = fs.createReadStream(info.file);
