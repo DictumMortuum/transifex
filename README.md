@@ -5,6 +5,8 @@
 - git
 - npm and nodejs
 
+This project has been developed on Ubuntu 64-bit 16.04 with the latest version that the official package manager provides. Here are the versions of each dependency:
+
 ```
 git:master on apparatus in ~ git --version
 git version 2.7.4
@@ -16,8 +18,8 @@ git:master on apparatus in ~ npm --version
 
 ## Installation
 
-- git clone git@github.com:DictumMortuum/transifex.git
-- npm install
+- `git clone git@github.com:DictumMortuum/transifex.git`
+- `npm install`
 
 ## Usage
 
@@ -25,15 +27,13 @@ git:master on apparatus in ~ npm --version
 
 `node index.js [ OPTIONS ]... ?ARG?`
 
-### Arguments
+Where `?ARG?` is used to specify the language code that you want to retrieve information for. This is an optional argument. If it is not provided, then all the language codes that are returned from the API are printed to standard output; in addition, the language codes are saved in a .csv file in the same folder that the script run from.
 
-#### ARG
+`OPTIONS` are all optional command-line switches.
 
-Specify the language code that you want to retrieve information for.
+### OPTIONS
 
-This is an optional argument. If it is not provided, then all the language codes that are returned from the API are printed to standard output; in addition, the language codes are saved in a .csv file in the same folder that the script run from.
-
-#### --path
+#### `--path`
 
 Specify the folder where the cached responses from the API will be stored.
 
@@ -47,7 +47,7 @@ $ ls -l languages
 -rw-rw-r-- 1 dictummortuum dictummortuum 72691 Sep 25 15:32 languages
 ```
 
-#### --ttl
+#### `--ttl`
 
 Specify the amount of time in ms that the cached response stays valid for. The amount should be a positive integer.
 
@@ -98,7 +98,7 @@ Change: 2016-09-25 15:38:44.913340333 +0300
  Birth: -
 ```
 
-#### --api
+#### `--api`
 
 Specify the API that the client is going to query for the language codes.
 
@@ -136,7 +136,7 @@ false,language.pluralequation,af_ZA,Afrikaans (South Africa),2
 
 ### Return value
 
-The client returns 0 on success, and 1 if any error has been encountered.
+The client returns 0 on success, and 1 if any error has been encountered during the retrieval of the data from the endpoint.
 
 ```
 $ node index.js > /dev/null
